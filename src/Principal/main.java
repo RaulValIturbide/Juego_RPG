@@ -4,6 +4,8 @@
  */
 package Principal;
 import Entidades.*;
+import GestorEntidades.*;
+import Pantalla.Menu;
 /**
  *
  * @author raulz
@@ -14,17 +16,32 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Guerrero g1 = new Guerrero(100, true, 20,0.5,30);
-        
-        Arquero a1 = new Arquero(100,true,20,0.2,30);
-        
-        Ladron l1 = new Ladron(100,true,20,0.2,30);
-        
-        
-        System.out.println(g1.mostrarInfo());
-        System.out.println(a1.mostrarInfo());
-        System.out.println(l1.mostrarInfo());
+           ListaEntidades listMng = new ListaEntidades();
+           Combate combatSys = new Combate();
+           boolean endProgram = false;
+           
+  
+           
+           
+      
+            listMng.crearJugador(Menu.classSelection());
+
+            listMng.crearEnemigo();
+
+            System.out.println(listMng.lista().get(0).mostrarInfo());
+
+            combatSys.combate(listMng.lista(),1);
+
+            System.out.println(listMng.lista().get(0).mostrarInfo());
+            System.out.println(listMng.lista().get(1).mostrarInfo());
+            
+            
+            endProgram = true;
+
+   
+
+
+
     }
     
 }
