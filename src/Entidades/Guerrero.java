@@ -24,7 +24,7 @@ public class Guerrero extends Jugador{
      */
     @Override
     String darNombre() {
-        String expReg = "^[A-Z]{1,}SON$";
+        String expReg = "^[A-Z]{1,} SON$";
         boolean correcto = false;
         String nombreTemp = null;
 
@@ -33,7 +33,7 @@ public class Guerrero extends Jugador{
                 Menu.pedirNombreJugador("Guerrero");
                 nombreTemp = teclado.nextLine();
                 if (!nombreTemp.matches(expReg)) {
-                    throw new NombreIncorrectoException("Introduzca solo letras en mayusculas mas el sufijo \"SON\"");
+                    throw new NombreIncorrectoException("Introduzca solo letras en mayusculas mas el sufijo \" SON\"");
                 }else{
                 correcto = true;
                 }
@@ -44,6 +44,12 @@ public class Guerrero extends Jugador{
         } while (!correcto);
 
         return nombreTemp;
+    }
+    
+    
+    @Override
+    public String mostrarInfo(){
+      return super.mostrarInfo();
     }
     
 }

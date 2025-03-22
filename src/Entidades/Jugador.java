@@ -30,10 +30,6 @@ public abstract class Jugador extends Personaje{
     }
     
     abstract String darNombre();
-    @Override
-    public String mostrarInfo(){
-        return """
-               Datos del jugador: 
-               Nombre: """ + nombre + "\nVida: " + super.getVida() + "\nAtaque: " +super.getAtaque() + "\nDefensa: " +super.getDefensa() + "\nIniciativa: " + super.getIniciativa();
-    }
+    
+
 }

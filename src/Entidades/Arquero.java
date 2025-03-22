@@ -40,7 +40,7 @@ public class Arquero extends Jugador{
      */
     @Override
      String darNombre() {
-        String expReg = "^ELDEL[A-Z]{1,}$";
+        String expReg = "^[A-Z]{1,} ELDEL$";
         boolean correcto = false;
         String nombreTemp = null;
 
@@ -49,7 +49,7 @@ public class Arquero extends Jugador{
                 Menu.pedirNombreJugador("Arquero");
                 nombreTemp = teclado.nextLine();
                 if (!nombreTemp.matches(expReg)) {
-                    throw new NombreIncorrectoException("Introduzca solo letras en mayusculas con el prefijo \"ELDEL\"");
+                    throw new NombreIncorrectoException("Introduzca solo letras en mayusculas con el sufijo \" ELDEL\"");
                 }else{
                 correcto = true;
                 }

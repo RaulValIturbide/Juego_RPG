@@ -4,8 +4,9 @@ package Entidades;
  *
  * @author raulz
  */
-abstract class Personaje {
-
+public abstract class Personaje {
+    private static int contadorEntidad = 0;//Contador para que aumente auto el id cada vez que se cree un personaje (jugador o monstruo)
+    private int id = 0;//ID para identificar a cada entidad del juego
     private int vida;//La salud de un personaje, cuando llegue a 0 estará muerto
     private boolean vivo; //Se mantendrá en true mientras la vida sea > 0 y false si es <= 0
     private int ataque; //Un atributo que marcará el daño de un personaje al usar su arma
@@ -14,6 +15,8 @@ abstract class Personaje {
     private String nombre; //El nombre de la entidad
 
     public Personaje(int vida, boolean vivo, int ataque, double defensa, int iniciativa) {
+        id = contadorEntidad;
+        contadorEntidad++;
         this.vida = vida;
         this.vivo = vivo;
         this.ataque = ataque;
@@ -68,9 +71,19 @@ abstract class Personaje {
     public String getNombre() {
         return nombre;
     }
+    public void setId(int id){
+        this.id = id;
+    }
+    public int getId(){
+        return id;
+    }
+   
+    public String mostrarInfo(){
+        return """
+               Datos del personaje: 
+               Nombre: """ + nombre + "\nVida: " + vida + "\nAtaque: " + ataque + "\nDefensa: " + defensa + "\nIniciativa: " + iniciativa;
+        }
     
-    
-    abstract String mostrarInfo();
 
 
         

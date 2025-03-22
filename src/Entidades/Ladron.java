@@ -22,7 +22,7 @@ public class Ladron extends Jugador {
     
         @Override
     String darNombre() {
-        String expReg = "^[A-Z]{1,}EXPOSITO$";
+        String expReg = "^[A-Z]{1,} EXPOSITO$";
         boolean correcto = false;
         String nombreTemp = null;
 
@@ -31,7 +31,7 @@ public class Ladron extends Jugador {
                 Menu.pedirNombreJugador("Ladron");
                 nombreTemp = teclado.nextLine();
                 if (!nombreTemp.matches(expReg)) {
-                    throw new NombreIncorrectoException("Introduzca solo letras en mayusculas mas el sufijo \"EXPOSITO\"");
+                    throw new NombreIncorrectoException("Introduzca solo letras en mayusculas mas el sufijo \" EXPOSITO\"");
                 }else{
                 correcto = true;
                 }
